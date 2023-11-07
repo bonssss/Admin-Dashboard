@@ -38,21 +38,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <BsGrid1X2Fill className='icon' /> Dashboard
           </a>
         </li>
-        {/* <li className={`sidebar-list-item ${isMedicineSubMenuVisible ? 'active' : ''}`}>
-          <a href="#" onClick={toggleMedicineSubMenu}>
-            <Medication className='icon' /> Medicine
-          </a>
-          {isMedicineSubMenuVisible && (
-            <ul className='sub-menu'>
-              <li className='sub-menu-item'>
-                <a href="#">Add Medicine</a>
-              </li>
-              <li className='sub-menu-item'>
-                <a href="#">Manage Medicine</a>
-              </li>
-            </ul>
-          )}
-        </li> */}
+       
          <li className={`sidebar-list-item ${isMedicineSubMenuVisible ? 'active' : ''}`}>
           <div onClick={toggleMedicineSubMenu}>
             <Medication className='icon' /> Medicine
@@ -62,23 +48,24 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
               <li className='sub-menu-item'>
                 <Link to="/add-medicine">Add Medicine</Link>
               </li>
-              {/* <li className='sub-menu-item'>
+              <li className='sub-menu-item'>
                 <Link to="/manage-medicine">Manage Medicine</Link>
-              </li> */}
+              </li>
             </ul>
           )}
         </li>
         <li className={`sidebar-list-item ${isSupplierSubMenuVisible ? 'active' : ''}`}>
-          <a href="#" onClick={toggleSupplierSubMenu}>
+          <div onClick={toggleSupplierSubMenu}>
             <Support className='icon' /> Supplier
-          </a>
+            </div>
           {isSupplierSubMenuVisible && (
             <ul className='sub-menu'>
               <li className='sub-menu-item'>
-                <a href="#">Add Supplier</a>
+                
+                <Link to="/add-supplier">Add Supplier</Link>
               </li>
               <li className='sub-menu-item'>
-                <a href="#">Manage Supplier</a>
+                <Link href="#">Manage Supplier</Link>
               </li>
             </ul>
           )}
@@ -90,10 +77,25 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           {isPurchaseSubMenuVisible && (
             <ul className='sub-menu'>
               <li className='sub-menu-item'>
-                <a href="#">Add Purchase</a>
+                <Link href="#">Add Purchase</Link>
               </li>
               <li className='sub-menu-item'>
-                <a href="#">Manage Purchase</a>
+                <Link href="#">Manage Purchase</Link>
+              </li>
+            </ul>
+          )}
+        </li>
+        <li className={`sidebar-list-item ${isPurchaseSubMenuVisible ? 'active' : ''}`}>
+          <a href="#" onClick={togglePurchaseSubMenu}>
+            <BsMenuButtonWideFill className='icon' /> Report
+          </a>
+          {isPurchaseSubMenuVisible && (
+            <ul className='sub-menu'>
+              <li className='sub-menu-item'>
+                <Link href="#">Sales Report</Link>
+              </li>
+              <li className='sub-menu-item'>
+                <Link href="#"> Purchase Report</Link>
               </li>
             </ul>
           )}

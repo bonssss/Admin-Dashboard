@@ -1,0 +1,91 @@
+/* ManageMedicine component styles */
+
+.container-fluid {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  /* Edit and delete icons */
+  .edit-icon
+   {
+    cursor: pointer;
+    margin-right: 10px;
+    color: #007bff;
+  }
+  .delete-icon{
+    cursor: pointer;
+    margin-right: 10px;
+    color: red;
+
+  }
+  
+  /* Edit and delete icons hover effect */
+  .edit-icon:hover,
+  .delete-icon:hover {
+    color: #0056b3;
+  }
+  
+  /* Add button styles */
+  .add-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+    th, td {
+      font-size: 14px;
+    }
+  
+    .edit-icon,
+    .delete-icon {
+      font-size: 16px;
+      margin-right: 5px;
+    }
+  
+    .add-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+
+  .table th {
+    background-color: #007bff;
+    color: white;
+  }

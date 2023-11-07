@@ -1,7 +1,8 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { Report } from "@mui/icons-material";
 import AddMedicine from "./components/Medicine/AddMedicine";
-
+import AddSupplier from "./components/Supplier/AddSupplier";
 
 import {
   BsFillArchiveFill,
@@ -73,13 +74,34 @@ function Home() {
   //   },
   // ];
 
+  const [showAddMedicineForm, setShowAddMedicineForm] = useState(false);
+  const [showAddSupplierForm, setShowAddSupplierForm] = useState(false);
+
+  // for add medicine
+  const handleAddMedicineClick = () => {
+    setShowAddMedicineForm(true);
+  };
+
+  if (showAddMedicineForm) {
+    return <AddMedicine />;
+  }
+
+  // for add supplier
+  const handleAddSupplierClick = () => {
+    setShowAddSupplierForm(true);
+  };
+
+  if (showAddSupplierForm) {
+    return <AddSupplier/>;
+  }
+  
+
   return (
     <main className="main-container">
       <div className="main-title">
-      
-        <h3><i className="material-icons">home</i>DASHBOARD</h3>
-        
-
+        <h3>
+          <i className="material-icons">home</i>DASHBOARD
+        </h3>
       </div>
 
       <div className="main-cards">
@@ -105,11 +127,11 @@ function Home() {
           <h1>33</h1>
         </div>
         <div className="card">
-        <h3>Total Report <Report/></h3> 
+          <h3>
+            Total Report <Report />
+          </h3>
           <div className="card-inner">
-         
-            
-            <table border="1px solid black" >
+            <table border="1px solid black">
               <tbody>
                 <tr>
                   <td>TOTAL SALES</td>
@@ -122,7 +144,6 @@ function Home() {
               </tbody>
             </table>
           </div>
-          
         </div>
         <div className="card">
           <div className="card-inner">
@@ -131,43 +152,35 @@ function Home() {
           </div>
           <h1>33</h1>
         </div>
-        
       </div>
-
-
 
       <hr />
 
-<div className="main-cards">
-      <div className="card">
+      <div className="main-cards">
+        <div className="card"  onClick={handleAddMedicineClick}>
           <div className="card-inner">
-          
             <Medication className="card_icon" />
           </div>
           <h4> Add New Medicine</h4>
         </div>
-        <div className="card">
-        <div className="card-inner">
-            
+        <div className="card" onClick={handleAddSupplierClick}>
+          <div className="card-inner">
             <BsPeopleFill className="card_icon" />
           </div>
           <h3> Add New Supplier</h3>
-          
         </div>
         <div className="card">
           <div className="card-inner">
-          
             <BsPeopleFill className="card_icon" />
           </div>
           <h3>Add New Purchaser</h3>
         </div>
-           </div>
+      </div>
 
-           <hr />
+      <hr />
 
-           
-<div className="main-cards">
-      <div className="card">
+      <div className="main-cards">
+        <div className="card">
           <div className="card-inner">
             <h3>Purchase Report</h3>
             <Report className="card_icon" />
@@ -175,18 +188,15 @@ function Home() {
           <h1>33</h1>
         </div>
         <div className="card">
-        <div className="card-inner">
+          <div className="card-inner">
             <h3>Sales Report</h3>
             <Report className="card_icon" />
           </div>
           <h1>33</h1>
         </div>
        
-           </div>
-         
-        
       
-      
+      </div>
 
       {/* <div className='charts'> */}
       {/* <ResponsiveContainer width="100%" height="100%">

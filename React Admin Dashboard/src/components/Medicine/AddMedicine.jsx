@@ -1,12 +1,70 @@
 import React, { useState } from 'react';
 import './addmedicine.css'
+ import AddSupplier from '../Supplier/AddSupplier';
 
-const AddMedicineForm = () => {
+
+const AddMedicine = () => {
   const [medicineName, setMedicineName] = useState('');
   const [packing, setPacking] = useState('');
   const [genericName, setGenericName] = useState('');
   const [suppliersName, setSuppliersName] = useState('');
   const [showSupplierSuggestions, setShowSupplierSuggestions] = useState(false);
+
+  const validateMedicineName = (value) => {
+    if (!value) {
+      document.getElementById('medicine_name_error').textContent = 'Medicine name is required';
+    } else {
+      document.getElementById('medicine_name_error').textContent = '';
+    }
+  };
+  
+  const validatePacking = (value) => {
+    if (!value) {
+      document.getElementById('pack_error').textContent = 'Packing is required';
+    } else {
+      document.getElementById('pack_error').textContent = '';
+    }
+  };
+  
+  const validateGenericName = (value) => {
+    if (!value) {
+      document.getElementById('generic_name_error').textContent = 'Generic name is required';
+    } else {
+      document.getElementById('generic_name_error').textContent = '';
+    }
+  };
+  
+  const validateSupplierName = (value) => {
+    if (!value) {
+      document.getElementById('supplier_name_error').textContent = 'Supplier name is required';
+    } else {
+      document.getElementById('supplier_name_error').textContent = '';
+    }
+  };
+  
+  const addMedicine = () => {
+    // Get input values
+    const medicineName = document.getElementById('medicine_name').value;
+    const packing = document.getElementById('packing').value;
+    const genericName = document.getElementById('generic_name').value;
+    const supplierName = document.getElementById('suppliers_name').value;
+  
+    // Validate input fields
+    validateMedicineName(medicineName);
+    validatePacking(packing);
+    validateGenericName(genericName);
+    validateSupplierName(supplierName);
+  
+    // Check if all fields are non-empty
+    if (medicineName && packing && genericName && supplierName) {
+      // Add logic to handle the form submission
+      // ...
+      document.getElementById('medicine_acknowledgement').textContent = 'Medicine added successfully!';
+    } else {
+      document.getElementById('medicine_acknowledgement').textContent = ''; // Clear the success message if there are validation errors or empty fields
+    }
+  };
+  
 
   const handleSupplierInputChange = (event) => {
     const value = event.target.value;
@@ -19,6 +77,17 @@ const AddMedicineForm = () => {
     // Add logic for handling the "ADD" button click event
     // You can access the form values using the state variables (medicineName, packing, genericName, suppliersName)
   };
+
+  // for add supplier
+  const [showAddSupplierForm, setShowAddSupplierForm] = useState(false);
+
+  const handleAddSupplierClick = () => {
+    setShowAddSupplierForm(true);
+  };
+
+  if (showAddSupplierForm) {
+    return <AddSupplier/>;
+  }
 
   return (
     <div className="container">
@@ -83,7 +152,7 @@ const AddMedicineForm = () => {
       </div>
 
       <div className="row">
-        <div className="col col-md-5 font-weight-bold" style={{ color: 'green', cursor: 'pointer' }} onClick={() => setShowSupplierSuggestions(true)}>
+        <div className="col col-md-5 font-weight-bold" style={{ color: 'green', cursor: 'pointer' }} onClick={() => handleAddSupplierClick(true)}>
           <i className="fa fa-plus"></i>Add New Supplier
         </div>
       </div>
@@ -91,7 +160,7 @@ const AddMedicineForm = () => {
 
       <div className="row">
         <div className="form-group m-auto">
-          <button className="btn btn-primary form-control" onClick={handleAddMedicineClick}>ADD</button>
+          <button className="btn btn-primary form-control" onClick={addMedicine}>ADD</button>
         </div>
       </div>
 
@@ -100,4 +169,4 @@ const AddMedicineForm = () => {
   );
 };
 
-export default AddMedicineForm;
+export default AddMedicine;
