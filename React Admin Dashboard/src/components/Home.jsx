@@ -1,8 +1,10 @@
 
 import React, { useState } from "react";
 import { Report } from "@mui/icons-material";
-import AddMedicine from "./components/Medicine/AddMedicine";
-import AddSupplier from "./components/Supplier/AddSupplier";
+import AddMedicine from "./Medicine/AddMedicine";
+import AddSupplier from "./Supplier/AddSupplier";
+import { Link } from "react-router-dom";
+// import './home.css'
 
 import {
   BsFillArchiveFill,
@@ -157,18 +159,24 @@ function Home() {
       <hr />
 
       <div className="main-cards">
-        <div className="card"  onClick={handleAddMedicineClick}>
+      <Link to="/add-medicine" className="card">
+
+        {/* <div className="card"  onClick={handleAddMedicineClick}> */}
           <div className="card-inner">
             <Medication className="card_icon" />
           </div>
           <h4> Add New Medicine</h4>
-        </div>
-        <div className="card" onClick={handleAddSupplierClick}>
+        {/* </div> */}
+        </Link> 
+
+        <Link to="/add-supplier" className="card">
+        {/* <div className="card" onClick={handleAddSupplierClick}> */}
           <div className="card-inner">
             <BsPeopleFill className="card_icon" />
           </div>
           <h3> Add New Supplier</h3>
-        </div>
+          </Link>
+        {/* </div> */}
         <div className="card">
           <div className="card-inner">
             <BsPeopleFill className="card_icon" />

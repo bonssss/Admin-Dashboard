@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './supplier.css';
+import "./supplier.css";
 
 const AddSupplier = () => {
   const [name, setName] = useState("");
@@ -62,102 +62,137 @@ const AddSupplier = () => {
     //   setSuccessMessage("Supplier added successfully!");
     //   // Add logic to save the supplier data or perform other actions
     // }
-    if (name && email && contactNumber && address && !nameError && !emailError && !contactNumberError && !addressError) {
+    if (
+      name &&
+      email &&
+      contactNumber &&
+      address &&
+      !nameError &&
+      !emailError &&
+      !contactNumberError &&
+      !addressError
+    ) {
       setSuccessMessage("Supplier added successfully!");
-    }
-    else {
+    } else {
       setSuccessMessage(" invalid"); // Clear the success message if there are validation errors or empty fields
     }
   };
 
   return (
-    <div className="container">
-      <div className="row col-md-12">
-        <div className="col-md-12 form-group">
-          <label className="font-weight-bold" htmlFor="supplier_name">
-            Supplier Name:
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Name"
-            id="supplier_name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onBlur={() => validateName(name)}
+    <div className="addsuppliercontainer">
+      <div className="container">
+        <div className="row col-md-12">
+          <div className="col-md-12 form-group">
+            <label className="font-weight-bold" htmlFor="supplier_name">
+              Supplier Name:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Name"
+              id="supplier_name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onBlur={() => validateName(name)}
+            />
+            <code className="text-danger small font-weight-bold float-right">
+              {nameError}
+            </code>
+          </div>
+        </div>
+
+        <div className="row col-md-12">
+          <div className="col-md-12 form-group">
+            <label className="font-weight-bold" htmlFor="supplier_email">
+              Supplier Email:
+            </label>
+            <input
+              type="email"
+              autoComplete="off"
+              className="form-control"
+              placeholder="Email"
+              id="supplier_email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => validateEmail(email)}
+            />
+            <code className="text-danger small font-weight-bold float-right">
+              {emailError}
+            </code>
+          </div>
+        </div>
+
+        <div className="row col-md-12">
+          <div className="col-md-12 form-group">
+            <label
+              className="font-weight-bold"
+              htmlFor="supplier_contact_number"
+            >
+              Supplier Contact Number:
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              placeholder="Contact Number"
+              id="supplier_contact_number"
+              value={contactNumber}
+              onChange={(e) => setContactNumber(e.target.value)}
+              onBlur={() => validateContactNumber(contactNumber)}
+            />
+            <code className="text-danger small font-weight-bold float-right">
+              {contactNumberError}
+            </code>
+          </div>
+        </div>
+
+        <div className="row col-md-12">
+          <div className="col-md-12 form-group">
+            <label className="font-weight-bold" htmlFor="supplier_address">
+              Supplier Address:
+            </label>
+            <textarea
+              className="form-control"
+              placeholder="Address"
+              id="supplier_address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              onBlur={() => validateAddress(address)}
+            />
+            <code className="text-danger small font-weight-bold float-right">
+              {addressError}
+            </code>
+          </div>
+        </div>
+
+        <div className="col-md-12">
+          <hr
+            className="col-md-12 float-left"
+            style={{
+              padding: "0px",
+              width: "95%",
+              borderTop: "2px solid #02b6ff",
+            }}
           />
-          <code className="text-danger small font-weight-bold float-right">{nameError}</code>
         </div>
-      </div>
 
-      <div className="row col-md-12">
-        <div className="col-md-12 form-group">
-          <label className="font-weight-bold" htmlFor="supplier_email">
-            Supplier Email:
-          </label>
-          <input
-            type="email"
-            autoComplete="off"
-            className="form-control"
-            placeholder="Email"
-            id="supplier_email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => validateEmail(email)}
-          />
-          <code className="text-danger small font-weight-bold float-right">{emailError}</code>
+        <div className="row col-md-12">
+          <div className="form-group m-auto">
+            <button
+              className="btn btn-primary form-control"
+              onClick={addSupplier}
+            >
+              ADD
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className="row col-md-12">
-        <div className="col-md-12 form-group">
-          <label className="font-weight-bold" htmlFor="supplier_contact_number">
-            Supplier Contact Number:
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Contact Number"
-            id="supplier_contact_number"
-            value={contactNumber}
-            onChange={(e) => setContactNumber(e.target.value)}
-            onBlur={() => validateContactNumber(contactNumber)}
-          />
-          <code className="text-danger small font-weight-bold float-right">{contactNumberError}</code>
+        <div
+          id="supplier_acknowledgement"
+          className="col-md-12 h5 text-success font-weight-bold text-center"
+          style={{ fontFamily: "sans-serif" }}
+        >
+          {successMessage}
         </div>
-      </div>
-
-      <div className="row col-md-12">
-        <div className="col-md-12 form-group">
-          <label className="font-weight-bold" htmlFor="supplier_address">
-            Supplier Address:
-          </label>
-          <textarea
-            className="form-control"
-            placeholder="Address"
-            id="supplier_address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            onBlur={() => validateAddress(address)}
-          />
-          <code className="text-danger small font-weight-bold float-right">{addressError}</code>
-        </div>
-      </div>
-
-      <div className="col-md-12">
-        <hr className="col-md-12 float-left" style={{ padding: "0px", width: "95%", borderTop: "2px solid #02b6ff" }} />
-      </div>
-
-      <div className="row col-md-12">
-        <div className="form-group m-auto">
-          <button className="btn btn-primary form-control" onClick={addSupplier}>
-            ADD
-          </button>
-        </div>
-      </div>
-
-      <div id="supplier_acknowledgement" className="col-md-12 h5 text-success font-weight-bold text-center" style={{ fontFamily: "sans-serif" }}>
-        {successMessage}
       </div>
     </div>
   );
