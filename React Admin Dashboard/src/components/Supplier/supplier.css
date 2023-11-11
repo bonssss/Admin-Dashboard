@@ -1,9 +1,16 @@
 /* SupplierDetails.css */
-
+.addsuppliercontainer{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
 .container {
-    max-width: 400px;
+    /* max-width: 400px; */
     margin: 0 auto;
     padding: 20px;
+    max-height: 500px; /* Set a maximum height for scrolling */
+    overflow-y: auto;
   }
   
   .form-group {

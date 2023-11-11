@@ -93,6 +93,7 @@ const ManageMedicine = () => {
             </div>
           </div>
         </div>
+        
         {/* Medicine table end */}
       </div>
     </div>

@@ -90,6 +90,7 @@ const AddMedicine = () => {
   }
 
   return (
+    <div className="addmedicinecontainer">
     <div className="container">
       <div className="row">
         <div className="col col-md-8 form-group">
@@ -129,6 +130,32 @@ const AddMedicine = () => {
           <code className="text-danger small font-weight-bold float-right" style={{ display: 'none' }}></code>
         </div>
       </div>
+      <div className="row">
+        <div className="col col-md-12 form-group">
+          <label className="font-weight-bold" htmlFor="generic_name">Date :</label>
+          <input
+            type="text"
+            className="form-control"
+            id="generic_name"
+            placeholder="date"
+            onBlur={(e) => setGenericName(e.target.value)}
+          />
+          <div className="row">
+        <div className="col col-md-12 form-group">
+          <label className="font-weight-bold" htmlFor="generic_name">Expire Date :</label>
+          <input
+            type="text"
+            className="form-control"
+            id="generic_name"
+            placeholder="Expire date"
+            onBlur={(e) => setGenericName(e.target.value)}
+          />
+          <code className="text-danger small font-weight-bold float-right" style={{ display: 'none' }}></code>
+        </div>
+      </div>
+          <code className="text-danger small font-weight-bold float-right" style={{ display: 'none' }}></code>
+        </div>
+      </div>
 
       <div className="row">
         <div className="col col-md-12 form-group">
@@ -165,6 +192,7 @@ const AddMedicine = () => {
       </div>
 
       <div id="medicine_acknowledgement" className="col-md-12 h5 text-success font-weight-bold text-center" style={{ fontFamily: 'sans-serif' }}></div>
+    </div>
     </div>
   );
 };
