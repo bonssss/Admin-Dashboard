@@ -4,7 +4,13 @@ import { Medication } from '@mui/icons-material';
 import { Support } from '@mui/icons-material';
 import logo from '../assets/logop.jpeg';
 import { Link } from 'react-router-dom';
-import './sidebar.css'
+import dashboard from '../assets/dashboard.png'
+import medicine from '../assets/medicine.png'
+import supplier from '../assets/supplier.png'
+import purchase from '../assets/ppp.png'
+import sales from '../assets/ppp.png'
+
+// import './sidebar.css'
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   const [isMedicineSubMenuVisible, setMedicineSubMenuVisible] = useState(false);
@@ -12,6 +18,8 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
   const [isPurchaseSubMenuVisible, setPurchaseSubMenuVisible] = useState(false);
   const [isReportSubMenuVisible, setReportSubMenuVisible] = useState(false);
   const [isDashboardSubMenuVisible, setDashboardSubMenuVisible] = useState(false);
+  const [isSalesSubMenuVisible, setSalesSubMenuVisible] = useState(false);
+
 
 
   const toggleMedicineSubMenu = () => {
@@ -29,8 +37,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
     setReportSubMenuVisible(!isReportSubMenuVisible);
   };
   const toggleDashboardSubMenu = () => {
-    setDashboardSubMenuVisible(!isDashSuboardbMenuVisible);
+    setDashboardSubMenuVisible(!isDashboardSubMenuVisible);
   };
+  const toggleSalesSubMenu = () => {
+    setSalesSubMenuVisible(!isSalesSubMenuVisible);
+  };
+
 
 
   return (
@@ -48,14 +60,20 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       <li className={`sidebar-list-item ${isMedicineSubMenuVisible ? 'active' : ''}`}>
           <div onClick={toggleDashboardSubMenu}>
           <Link to="/home" className='dashboard'>
-            <BsGrid1X2Fill className='icon' /> Dashboard
+            <img src={dashboard}  className="dashboard-icon" alt="" />
+            {/* <BsGrid1X2Fill className='icon' /> */}
+             Dashboard
           </Link>
           </div>
         </li>
        
          <li className={`sidebar-list-item ${isMedicineSubMenuVisible ? 'active' : ''}`}>
           <div onClick={toggleMedicineSubMenu}>
-            <Medication className='icon' /> Medicine
+            {/* <Medication className='icon' />  */}
+            <img src={medicine}  className="dashboard-icon" alt="" />
+
+
+            Medicine
           </div>
           {isMedicineSubMenuVisible && (
             <ul className='sub-menu'>
@@ -70,7 +88,10 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
         <li className={`sidebar-list-item ${isSupplierSubMenuVisible ? 'active' : ''}`}>
           <div onClick={toggleSupplierSubMenu}>
-            <Support className='icon' /> Supplier
+            {/* <Support className='icon' />  */}
+            <img src={supplier}  className="dashboard-icon" alt="" />
+
+            Supplier
             </div>
           {isSupplierSubMenuVisible && (
             <ul className='sub-menu'>
@@ -85,8 +106,29 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           )}
         </li>
         <li className={`sidebar-list-item ${isPurchaseSubMenuVisible ? 'active' : ''}`}>
+          <a href="#" onClick={toggleSalesSubMenu}>
+            {/* <BsMenuButtonWideFill className='icon' />  */}
+            <img src={sales}  className="dashboard-icon" alt="" />
+
+            Sales
+          </a>
+          {isSalesSubMenuVisible && (
+            <ul className='sub-menu'>
+              <li className='sub-menu-item'>
+                <Link to="/add-sales"  className='Hide-line'>Add Sales</Link>
+              </li>
+              <li className='sub-menu-item'>
+                <Link to="/manage-sales"  className='Hide-line'>ManageSales</Link>
+              </li>
+            </ul>
+          )}
+        </li>
+        <li className={`sidebar-list-item ${isPurchaseSubMenuVisible ? 'active' : ''}`}>
           <a href="#" onClick={togglePurchaseSubMenu}>
-            <BsMenuButtonWideFill className='icon' /> Purchase
+            {/* <BsMenuButtonWideFill className='icon' />  */}
+            <img src={purchase}  className="dashboard-icon" alt="" />
+
+            Purchase
           </a>
           {isPurchaseSubMenuVisible && (
             <ul className='sub-menu'>
@@ -94,7 +136,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
                 <Link to="/add-purchase"  className='Hide-line'>Add Purchase</Link>
               </li>
               <li className='sub-menu-item'>
-                <Link href="#"  className='Hide-line'>Manage Purchase</Link>
+                <Link to="/manage-purchase"  className='Hide-line'>Manage Purchase</Link>
               </li>
             </ul>
           )}
@@ -105,12 +147,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </a>
           {isReportSubMenuVisible && (
             <ul className='sub-menu'>
-               <li className='sub-menu-item'>
-                <Link href="#"  className='Hide-line'>sales Item</Link>
-              </li>
-              <li className='sub-menu-item'>
-                <Link href="#"  className='Hide-line'>Purchase Item</Link>
-              </li>
+             
               <li className='sub-menu-item'>
                 <Link href="#"  className='Hide-line'>Sales Report</Link>
               </li>

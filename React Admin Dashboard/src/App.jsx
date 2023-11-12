@@ -9,6 +9,9 @@ import AddSupplier from "./components/Supplier/AddSupplier";
 import ManageMedicine from "./components/Medicine/ManageMedicine";
 import AddPurchase from "./components/purchase/AddPurchase";
 import ManageSupplier from "./components/Supplier/ManageSupplier";
+import AddSales from "./components/Sales/AddSales";
+import ManageSales from "./components/Sales/ManageSales";
+import ManagePurchase from "./components/purchase/ManagePurchase";
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -57,6 +60,12 @@ function App() {
               <Route path="/add-purchase" element={<AddPurchase />} />
               <Route path="/manage-supplier" element={<ManageSupplier />} />
               <Route path="/home" element={<Home/>} />
+              <Route path="/add-sales" element={<AddSales />} />
+              <Route path="/manage-sales" element={<ManageSales />} />
+              <Route path="/manage-purchase" element={<ManagePurchase />} />
+
+
+
 
               
 

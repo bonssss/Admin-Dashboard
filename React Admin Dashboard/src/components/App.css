@@ -72,6 +72,7 @@ justify-content: space-between;
   gap: 30px;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
   z-index: 2;
+  /* margin-left: 300px; */
 }
 .menu-content{
   position: fixed;
@@ -206,8 +207,10 @@ border: 2px solid cyan;
 }
 
 .sidebar-list-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(184, 37, 37, 0.2);
   cursor: pointer;
+  color:black;
+  font-weight: bold;
 }
 
 .sidebar-list-item > a {
@@ -233,14 +236,11 @@ border: 2px solid cyan;
   
 }
 
-.dashboard,.Hide-line{
-  text-decoration: none;
+.dashboard-icon{
+  margin-right: 5px;
 }
-.Hide-line:hover{
-  background-color: #20dfcc;
-  color: black;
-}
- End Sidebar  */
+
+/* End Sidebar  */
 
 
 /* Main  */  
