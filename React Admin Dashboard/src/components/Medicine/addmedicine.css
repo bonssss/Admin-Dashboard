@@ -1,7 +1,7 @@
 /* Style for the container */
 
 .container{
-  max-height: 500px; /* Set a maximum height for scrolling */
+  max-height: 100%; /* Set a maximum height for scrolling */
   overflow-y: auto;
 }
 .addmedicinecontainer {
@@ -9,6 +9,7 @@
   margin: 0 auto;
   padding: 20px;
   overflow: hidden;
+  height: 100%;
 }
 
 /* Style for form elements */
@@ -19,8 +20,8 @@
 /* Style for form labels */
 label {
   font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
+  margin-bottom: 20px;
+  /* display: block; */
 }
 
 /* Style for form inputs */
@@ -75,6 +76,13 @@ label {
 
 .list-group-item:last-child {
   border-bottom: none;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /* Style for the "ADD" button */

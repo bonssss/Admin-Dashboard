@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './managesupplier.css'; // Import your CSS file
+import managesupplier from '../../assets/supplier.png'
 
 const ManageSupplier = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,16 +21,40 @@ const ManageSupplier = () => {
     setSearchTerm(e.target.value);
   };
 
+  const [filter, setFilter] = useState('all'); // 'all', 'month', 'week'
+
+  const handleFilterChange = (selectedFilter) => {
+    setFilter(selectedFilter);
+  }
+
   return (
     <div className="container-fluid">
       <div className="container">
+        <h1> <img src={managesupplier} className='dashboard-icon' alt="" />Manage Supplier</h1>
+        
         {/* Header section */}
         <div className="row">
           <div className="col-md-12 form-group form-inline">
-            <label className="font-weight-bold" htmlFor="">Search :&emsp;</label>
+            <label className="font-weight-bold" htmlFor="">Search:&emsp;</label>
             <input type="text" className="form-control" id="" placeholder="Search Supplier" value={searchTerm} onChange={handleSearchInputChange} />
           </div>
         </div>
+
+        
+<div className="filter-dropdown">
+        <label htmlFor="filter">Filter:</label>
+        <select
+          id="filter"
+          value={filter}
+          onChange={(e) => handleFilterChange(e.target.value)}
+        >
+          <option value="all">All</option>
+          <option value="month">Month</option>
+          <option value="week">Week</option>
+          <option value="week">Today</option>
+
+        </select>
+      </div>
         <div className="row">
           <div className="col col-md-12">
             <hr className="col-md-12" style={{ padding: '0px', borderTop: '2px solid #02b6ff' }} />

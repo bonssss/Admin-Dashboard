@@ -5,6 +5,7 @@ import AddMedicine from "./Medicine/AddMedicine";
 import AddSupplier from "./Supplier/AddSupplier";
 import { Link } from "react-router-dom";
 // import './home.css'
+import dashboard from '../assets/dashboard.png'
 
 import {
   BsFillArchiveFill,
@@ -102,7 +103,9 @@ function Home() {
     <main className="main-container">
       <div className="main-title">
         <h3>
-          <i className="material-icons">home</i>DASHBOARD
+          {/* <i className="material-icons">home</i> */}
+          <img src={dashboard}  className="dashboard-icon" alt="" />
+          DASHBOARD
         </h3>
       </div>
 

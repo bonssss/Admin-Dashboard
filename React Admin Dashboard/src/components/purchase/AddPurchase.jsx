@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './addpurchase.css'; // Import your CSS file for styling if needed
+import addpurchase from '../../assets/ppp.png'
 
 const AddPurchase = () => {
   const [supplierName, setSupplierName] = useState('');
   const [invoiceNumber, setInvoiceNumber] = useState('');
   const [paymentType, setPaymentType] = useState('Cash Payment');
   const [invoiceDate, setInvoiceDate] = useState('');
+
+  // Additional state for medicine details
+  const [medicineName, setMedicineName] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [expireDate, setExpireDate] = useState('');
 
   const handleSupplierChange = (event) => {
     setSupplierName(event.target.value);
@@ -32,6 +38,9 @@ const AddPurchase = () => {
     console.log('Invoice Number:', invoiceNumber);
     console.log('Payment Type:', paymentType);
     console.log('Invoice Date:', invoiceDate);
+    console.log('Medicine Name:', medicineName);
+    console.log('Quantity:', quantity);
+    console.log('Expire Date:', expireDate);
   };
 
   const [showAddPurchaseForm, setShowAddPurchaseForm] = useState(false);
@@ -41,72 +50,131 @@ const AddPurchase = () => {
   };
 
   if (showAddPurchaseForm) {
-    return <AddPurchase/>;
+    return <AddPurchase />;
   }
 
 
-  return (
-    <div className="container-fluid">
-      {/* Your modal */}
-      {/* Including side navigations (if you have a separate component for it) */}
-      {/* Header section (if you have a separate component for it) */}
 
-      {/* Form content */}
-      <div className="row">
-        {/* Supplier details */}
-        <div className="row col col-md-12">
-          <div className="col col-md-4 form-group">
-            <label className="font-weight-bold" htmlFor="supplierName">Supplier :</label>
-            <input
-              id="supplierName"
-              type="text"
-              className="form-control"
-              placeholder="Supplier Name"
-              value={supplierName}
-              onChange={handleSupplierChange}
-            />
-            {/* Suggestions and error handling can be implemented here */}
+  return (
+    
+      <div className="container-fluid">
+        <div className="addpurchase-conatiner">
+        <h1><img src={addpurchase} className="dashboard-icon" alt="" /> Add Purchase</h1>
+        <div className="row">
+          {/* Supplier details */}
+          <div className="row col col-md-12">
+            <div className="col col-md-4 form-group">
+              <label className="font-weight-bold" htmlFor="supplierName">
+                Supplier:
+              </label>
+              <input
+                id="supplierName"
+                type="text"
+                className="form-control"
+                placeholder="Supplier Name"
+                value={supplierName}
+                onChange={handleSupplierChange}
+              />
+            </div>
+
+            <div className="col col-md-2 form-group">
+              <label className="font-weight-bold" htmlFor="invoiceNumber">
+                Invoice Number:
+              </label>
+              <input
+                id="invoiceNumber"
+                type="text"
+                className="form-control"
+                placeholder="Invoice Number"
+                value={invoiceNumber}
+                onChange={handleInvoiceNumberChange}
+              />
+            </div>
+
+            <div className="col col-md-2 form-group">
+              <label className="font-weight-bold" htmlFor="paymentType">
+                Payment Type:
+              </label>
+              <select
+                id="paymentType"
+                className="form-control"
+                value={paymentType}
+                onChange={handlePaymentTypeChange}
+              >
+                <option value="Cash Payment">Cash Payment</option>
+                <option value="Net Banking">Net Banking</option>
+                <option value="Payment Due">Payment Due</option>
+              </select>
+            </div>
+
+            <div className="col col-md-2 form-group">
+              <label className="font-weight-bold" htmlFor="invoiceDate">
+                Date:
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="invoiceDate"
+                value={invoiceDate}
+                onChange={handleInvoiceDateChange}
+              />
+            </div>
+          </div>
+
+          {/* Add medicines */}
+          <div className="row col col-md-12">
+            <div className="col col-md-4 form-group">
+              <label className="font-weight-bold" htmlFor="medicineName">
+                Medicine Name:
+              </label>
+              <input
+                id="medicineName"
+                type="text"
+                className="form-control"
+                placeholder="Medicine Name"
+                value={medicineName}
+                onChange={(e) => setMedicineName(e.target.value)}
+              />
+            </div>
+
+            <div className="col col-md-4 form-group">
+              <label className="font-weight-bold" htmlFor="quantity">
+                Quantity:
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </div>
+
+            <div className="col col-md-4 form-group">
+              <label className="font-weight-bold" htmlFor="expireDate">
+                Expire Date:
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="expireDate"
+                value={expireDate}
+                onChange={(e) => setExpireDate(e.target.value)}
+              />
+            </div>
           </div>
 
           {/* Other input fields go here */}
           {/* ... */}
-
-          <div className="col col-md-2 form-group">
-            <label className="font-weight-bold" htmlFor="paymentType">Payment Type :</label>
-            <select
-              id="paymentType"
-              className="form-control"
-              value={paymentType}
-              onChange={handlePaymentTypeChange}
-            >
-              <option value="Cash Payment">Cash Payment</option>
-              <option value="Net Banking">Net Banking</option>
-              <option value="Payment Due">Payment Due</option>
-            </select>
-          </div>
-
-          <div className="col col-md-2 form-group">
-            <label className="font-weight-bold" htmlFor="invoiceDate">Date :</label>
-            <input
-              type="date"
-              className="form-control"
-              id="invoiceDate"
-              value={invoiceDate}
-              onChange={handleInvoiceDateChange}
-            />
-            {/* Date validation error can be displayed here */}
-          </div>
         </div>
-
-        {/* Add medicines */}
-        {/* Medicine input fields go here */}
-        {/* ... */}
 
         {/* Grand total */}
         <div className="row col col-md-12">
           <div className="col col-md-10"></div>
           <div className="col col-md-2 form-group float-right">
-            <label className="font-weight-bold" htmlFor="grandTotal">Grand Total :</label>
+            <label className="font-weight-bold" htmlFor="grandTotal">
+              Grand Total:
+            </label>
             <input
               type="text"
               className="form-control"
@@ -120,14 +188,23 @@ const AddPurchase = () => {
         <div className="row col col-md-12">
           <div className="col col-md-5"></div>
           <div className="col col-md-2 form-group">
-            <button className="btn btn-primary form-control" onClick={handleAddPurchase}>ADD</button>
+            <button
+              className="btn btn-primary form-control"
+              onClick={handleAddPurchase}
+            >
+              ADD
+            </button>
           </div>
           <div className="col col-md-5"></div>
         </div>
+
         {/* Closing button */}
-        <div id="purchaseAcknowledgement" className="col-md-12 h5 text-success font-weight-bold text-center" style={{ fontFamily: 'sans-serif' }}></div>
+        <div
+          id="purchaseAcknowledgement"
+          className="col-md-12 h5 text-success font-weight-bold text-center"
+          style={{ fontFamily: 'sans-serif' }}
+        ></div>
       </div>
-      {/* Form content end */}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { Settings } from '@mui/icons-material';
 import { Person, Password, Logout } from '@mui/icons-material';
 import ChangePassword from './Password/ChangePassword';
 import EditProfile from './MyProfile/EditProfile';
-import './header.css'
+// import './header.css'
 
 function Header({ OpenSidebar }) {
   const [isInputVisible, setInputVisible] = useState(false);

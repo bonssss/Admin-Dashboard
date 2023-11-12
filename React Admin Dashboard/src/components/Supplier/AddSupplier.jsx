@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./supplier.css";
+import addsupplier from '../../assets/supplier.png'
 
 const AddSupplier = () => {
   const [name, setName] = useState("");
@@ -81,6 +82,7 @@ const AddSupplier = () => {
   return (
     <div className="addsuppliercontainer">
       <div className="container">
+        <h1> <img src={addsupplier} className="dashboard-icon" alt="" /> Add New Supplier</h1>
         <div className="row col-md-12">
           <div className="col-md-12 form-group">
             <label className="font-weight-bold" htmlFor="supplier_name">
